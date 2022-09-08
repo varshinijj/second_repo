@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import snowflake.connector
-
 conn = snowflake.connector.connect(
                 user='VARSHINI',
                 password='Snowflake@22!',
