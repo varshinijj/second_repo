@@ -29,9 +29,9 @@ tabs = list(set(list(tabl2['TABLE_NAME'])))
 final = st.selectbox('select table:',tabs)
 st.write('Selected Table:', final)
 
-dis = pd.read_sql("select COLUMN_NAME,TAG_NAME,TAG_VALUE from table({}.information_schema.tag_references_all_columns('{}.{}.{}', 'table'));".format(option,option,next,final)
+dis = pd.read_sql("select COLUMN_NAME,TAG_NAME,TAG_VALUE from table({}.information_schema.tag_references_all_columns('{}.{}.{}', 'table'));".format(option,option,next,final),conn)
 
-disp_pivot=dis.pivot(index=['COLUMN_NAME'],columns=['TAG_NAME'],values=['TAG_VALUE']).reset_index()
+disp_pivot = dis.pivot(index=['COLUMN_NAME'],columns=['TAG_NAME'],values=['TAG_VALUE']).reset_index()
 disp_pivot
 
 
