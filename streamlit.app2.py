@@ -9,6 +9,7 @@ conn = snowflake.connector.connect(
                 account='bv18063.ap-southeast-1',
     ocsp_fail_open=False
                 )
+    
 db = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where deleted is NULL and database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA');",conn)
 dbs = list(set(list(db['DATABASE'])))
 option = st.selectbox('select database:',dbs)
@@ -29,9 +30,11 @@ tabs = list(set(list(tabl2['TABLE_NAME'])))
 final = st.selectbox('select table:',tabs)
 st.write('Selected Table:', final)
 
-dis = pd.read_sql("select COLUMN_NAME,TAG_NAME,TAG_VALUE from table({}.information_schema.tag_references_all_columns('{}.{}.{}', 'table'));".format(option,option,next,final),conn)
-
-disp_pivot = dis.pivot(index=['COLUMN_NAME'],columns=['TAG_NAME'],values=['TAG_VALUE']).reset_index()
+dis = pd.read_sql("select COLUMN_NAME,TAG_NAME,TAG_VALUE,OBJECT_NAME from snowflake.account_usage.tag_references;",conn)
+disp = dis.loc[dis['OBJECT_NAME']==final][['COLUMN_NAME','TAG_NAME','TAG_VALUE']].reset_index(drop=True)
+disp_pivot=disp.pivot(index=['COLUMN_NAME'],columns=['TAG_NAME'],values=['TAG_VALUE']).reset_index()
 disp_pivot
+
+
 
 
