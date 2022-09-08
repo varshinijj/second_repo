@@ -2,7 +2,7 @@ import streamlit as st
 st.title("Snowflake Data-App")
 
 import pandas as pd
-pip install snowflake-connector-python
+
 import snowflake.connector
 conn = snowflake.connector.connect(
                 user='VARSHINI',
