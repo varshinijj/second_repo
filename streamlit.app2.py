@@ -31,7 +31,8 @@ with d.subgraph() as s:
 
     
 
-d.edges(['AB', 'AC', 'CD','{}{}'.format(db,x)])
+d.edges(['AB', 'AC', 'CD'])
+d.edge('{}'.format(db),'{}'.format(x)
 
 st.graphviz_chart(d)
 
