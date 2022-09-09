@@ -28,8 +28,6 @@ with d.subgraph() as s:
         
       
 
-
-
 st.graphviz_chart(d)
 
 
