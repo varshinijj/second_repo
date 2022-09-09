@@ -20,13 +20,14 @@ with d.subgraph() as s:
     
     
 d.node('C')
+for x in list(sc['sc'].unique()):
+        s.node('{}'.format(x))
 
 with d.subgraph() as s:
     s.attr(rank='same')
     s.node('B')
     s.node('D')
-    for x in list(sc['sc'].unique()):
-        s.node('{}'.format(x))
+    
 
     
 
