@@ -18,15 +18,13 @@ with d.subgraph() as s:
 with d.subgraph() as s:
     s.attr(rank='same')
     for x in list(sc['sc'].unique()):
-        s.node('{}'.format(st.button('{}'.format(x))))
-        d.node('{}'.format(db),'{}'.format(st.button))
+        s.node('{}'.format(x))
+        d.node('{}'.format(db),'{}'.format(x))
 with d.subgraph() as s:
     s.attr(rank='same')
     for idx,row in sc.iterrows():
         s.node('{}'.format(row['tab']))
-        d.edge('{}'.format(row['sc']),'{}'.format(row['tab'])) 
-        
-      
+        d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
 st.graphviz_chart(d)
 
 
