@@ -13,13 +13,13 @@ db = st.sidebar.selectbox("choose db:",tabd['db'])
 col1, col2 = st.columns([1, 3])
 
 with col1:
-    allschemas = st.checkbox('All schemas',True)
-    if allschemas:
-        sc = tabd.loc[tabd['db']==db][['sc','tab']]
     for x in list(sc['sc'].unique()):
-        schemas = st.checkbox('{}'.format(x),False)
+        schemas = st.checkbox('{}'.format(x),True)
         if schemas==False:
             sc = sc.loc[sc['sc']!=x]
+    allschemas = st.checkbox('All schemas',False)
+    if allschemas:
+        sc = tabd.loc[tabd['db']==db][['sc','tab']]        
 
         
         
