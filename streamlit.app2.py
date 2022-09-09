@@ -33,7 +33,7 @@ with d.subgraph() as s:
 
     
 
-d.edges(['AB', 'CD'])
+d.edges(['AB', 'AD'])
 
 
 st.graphviz_chart(d)
