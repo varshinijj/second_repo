@@ -27,6 +27,8 @@ tabd['sc'] = ['db1s1','db1s1','db1s2','db1s2','db1s3','db1s3','db2s1','db2s1','d
 tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','tab212','tab221','tab222','tab231','tab232','tab311','tab312','tab321','tab322','tab331','tab332']
 tabd
 
+st.sidebar.selectbox("choose db:",tabd['db'])
+
 
 
 
