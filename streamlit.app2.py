@@ -19,7 +19,7 @@ with d.subgraph() as s:
     s.node('{}'.format(db))   
     
     
-d.node('C')
+
 
 
 with d.subgraph() as s:
@@ -33,7 +33,7 @@ with d.subgraph() as s:
 
     
 
-d.edges(['AB', 'AC', 'CD'])
+d.edges(['AB', 'CD'])
 
 
 st.graphviz_chart(d)
