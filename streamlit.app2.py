@@ -18,8 +18,8 @@ with col1:
         sc = tabd.loc[tabd['db']==db][['sc','tab']]
     for x in list(sc['sc'].unique()):
         schemas = st.checkbox('{}'.format(x),False)
-        if schemas:
-            sc = sc.loc[sc['sc']==x]
+        if schemas==False:
+            sc = sc.loc[sc['sc']!=x]
 
         
         
