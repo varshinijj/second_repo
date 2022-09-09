@@ -13,7 +13,7 @@ d = graphviz.Digraph()
 
 with d.subgraph() as s:
     s.attr(rank='same')
-    s.node('{}'.format(db))
+    s.node('A')
     
 
 d.node('C')
