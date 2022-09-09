@@ -25,7 +25,8 @@ with col1:
         
 with col2:
     d = graphviz.Digraph()
-    d.attr(bgcolor='grey', fontcolor='white')
+    d.attr(bgcolor='grey', fontcolor='white',landscape=true)
+    
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db))  
@@ -33,7 +34,7 @@ with col2:
         s.attr(rank='same')
         for x in list(sc['sc'].unique()):
             s.node('{}'.format(x))
-            d.edge('{}'.format(db),'{}'.format(x))
+            d.edge('{}'.format(db),'{}'.format(x),label='m', len='1.00')
     with d.subgraph() as s:
         s.attr(rank='same')
         for idx,row in sc.iterrows():
