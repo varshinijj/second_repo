@@ -20,6 +20,7 @@ with col1:
         
 with col2:
     d = graphviz.Digraph()
+    d.attr(bgcolor='black', fontcolor='white')
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db))  
