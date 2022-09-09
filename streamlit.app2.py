@@ -26,7 +26,7 @@ with d.subgraph() as s:
     s.node('D')
 for x in list(sc['sc'].unique()): 
     s.node('{}'.format(x))
-    d.edge('{}{}'.format(db,x))
+    
 
 d.edges(['AB', 'AC', 'CD'])
 
