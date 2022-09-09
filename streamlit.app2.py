@@ -8,9 +8,9 @@ tabd['sc'] = ['db1s1','db1s1','db1s2','db1s2','db1s3','db1s3','db2s1','db2s1','d
 tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','tab212','tab221','tab222','tab231','tab232','tab311','tab312','tab321','tab322','tab331','tab332']
 base="light"
 db = st.sidebar.selectbox("choose db:",tabd['db'])
+sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
-
-col1, col2 = st.columns([1, 3])
+col1, col2 = st.columns([1, 4])
 
 with col1:
     for x in list(sc['sc'].unique()):
