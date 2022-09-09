@@ -26,7 +26,7 @@ with col1:
 with col2:
     d = graphviz.Digraph()
     d.attr(bgcolor='grey', fontcolor='white')
-    [landscape=true]
+    
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db))  
@@ -40,7 +40,7 @@ with col2:
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']))
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
-    st.graphviz_chart(d)
+    st.graphviz_chart(d,[area=200])
     
 
 
