@@ -18,8 +18,8 @@ with d.subgraph() as s:
 with d.subgraph() as s:
     s.attr(rank='same')
     for x in list(sc['sc'].unique()):
-        s.node('{}'.format(y=st.button('{}'.format(x))))
-        d.edge('{}'.format(db),'{}'.format(y))
+        s.node('{}'.format(x))
+        d.edge('{}'.format(db),'{}'.format(x))
 with d.subgraph() as s:
     s.attr(rank='same')
     for idx,row in sc.iterrows():
