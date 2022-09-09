@@ -26,10 +26,7 @@ with d.subgraph() as s:
         s.node('{}'.format(row['tab']))
         d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))  
         
-if st.button('Say hello'):
-     st.write('Why hello there')
- else:
-     st.write('Goodbye')        
+      
 
 
 
