@@ -24,7 +24,9 @@ with d.subgraph() as s:
     s.attr(rank='same')
     s.node('B')
     s.node('D')
-   
+for x in list(sc['sc'].unique()): 
+    s.node('{}'.format(x))
+    d.edge('{}{}'.format(db,x))
 
 d.edges(['AB', 'AC', 'CD'])
 
