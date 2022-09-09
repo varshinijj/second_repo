@@ -9,7 +9,7 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 
 
 db = st.sidebar.selectbox("choose db:",tabd['db'])
-sc = tabd.loc[tabd['db']==db][['sc'],['tab']]
+sc = tabd.loc[tabd['db']==db][['sc','tab']]
 sc
 d = graphviz.Digraph()
 
