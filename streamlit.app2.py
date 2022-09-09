@@ -20,19 +20,21 @@ with d.subgraph() as s:
     
     
 d.node('C')
-for x in list(sc['sc'].unique()):
-        s.node('{}'.format(x))
+
 
 with d.subgraph() as s:
     s.attr(rank='same')
     s.node('B')
     s.node('D')
+    for x in list(sc['sc'].unique()):
+        s.node('{}'.format(x))
+        d.edge('{}'.format(db),'{}'.format(x)
     
 
     
 
 d.edges(['AB', 'AC', 'CD'])
-d.edge('{}'.format(db),'{}'.format(x)
+
 
 st.graphviz_chart(d)
 
