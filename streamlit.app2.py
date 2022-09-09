@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import graphviz
 
-d = graphviz.Digraph(filename='rank_same.gv')
+d = graphviz.Digraph()
 
 with d.subgraph() as s:
     s.attr(rank='same')
@@ -19,7 +19,8 @@ with d.subgraph() as s:
 
 d.edges(['AB', 'AC', 'CD', 'XY'])
 
-d.view()
+st.graphviz_chart(d)
+
 
 
 
