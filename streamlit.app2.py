@@ -16,11 +16,7 @@ d = graphviz.Digraph()
 with d.subgraph() as s:
     s.attr(rank='same')
     s.node('A')
-    s.node('{}'.format(db))   
-    
-    
-
-
+    s.node('{}'.format(db))  
 
 with d.subgraph() as s:
     s.attr(rank='same')
@@ -29,11 +25,16 @@ with d.subgraph() as s:
     for x in list(sc['sc'].unique()):
         s.node('{}'.format(x))
         d.edge('{}'.format(db),'{}'.format(x))
-    
+        
+with d.subgraph() as s:
+    s.attr(rank='same')
+    s.node('X')
+    s.node('Y')
+   
 
     
 
-d.edges(['AB', 'AD'])
+d.edges(['AB', 'AD','BX','BY'])
 
 
 st.graphviz_chart(d)
