@@ -30,10 +30,10 @@ with d.subgraph() as s:
     s.attr(rank='same')
     s.node('X')
     s.node('Y')
+    for idx,row in sc.iterrows():
+        s.node('{}'.format(row['tab']))
+        d.edge('{}'.format(row['sc']),'{}'.format(row['tab'])) 
    
-
-    
-
 d.edges(['AB', 'AD','BX','BY'])
 
 
