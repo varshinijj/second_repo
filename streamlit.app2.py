@@ -9,8 +9,10 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 
 db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
-
-
+col1, col2 = st.columns([1, 3])
+for x in list(sc['sc'].unique()):
+    col1.st.button('{}'.format(x))
+    
 d = graphviz.Digraph()
 with d.subgraph() as s:
     s.attr(rank='same')
@@ -25,7 +27,7 @@ with d.subgraph() as s:
     for idx,row in sc.iterrows():
         s.node('{}'.format(row['tab']))
         d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
-st.graphviz_chart(d)
+col2.st.graphviz_chart(d)
 
 
 
