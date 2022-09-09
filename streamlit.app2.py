@@ -9,10 +9,15 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 
 db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
+
 col1, col2 = st.columns([1, 3])
+
 with col1:
+    schemas = st.button('All schemas')
     for x in list(sc['sc'].unique()):
-        st.button('{}'.format(x))
+        schemas = st.button('{}'.format(x))
+        
+        
 with col2:
     d = graphviz.Digraph()
     with d.subgraph() as s:
@@ -29,6 +34,7 @@ with col2:
             s.node('{}'.format(row['tab']))
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
     st.graphviz_chart(d)
+    
 
 
 
