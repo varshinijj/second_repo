@@ -10,8 +10,9 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 col1, col2 = st.columns([1, 3])
-for x in list(sc['sc'].unique()):
-    col1.st.button('{}'.format(x))
+with col1:
+    for x in list(sc['sc'].unique()):
+        st.button('{}'.format(x))
     
 d = graphviz.Digraph()
 with d.subgraph() as s:
