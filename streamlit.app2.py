@@ -25,8 +25,8 @@ with col1:
         
 with col2:
     d = graphviz.Digraph()
-    d.attr(bgcolor='grey', fontcolor='white',landscape=true)
-    
+    d.attr(bgcolor='grey', fontcolor='white')
+    [landscape=true]
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db))  
