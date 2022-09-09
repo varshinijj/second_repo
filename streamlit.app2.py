@@ -13,22 +13,22 @@ col1, col2 = st.columns([1, 3])
 with col1:
     for x in list(sc['sc'].unique()):
         st.button('{}'.format(x))
-    
-d = graphviz.Digraph()
-with d.subgraph() as s:
-    s.attr(rank='same')
-    s.node('{}'.format(db))  
-with d.subgraph() as s:
-    s.attr(rank='same')
-    for x in list(sc['sc'].unique()):
-        s.node('{}'.format(x))
-        d.edge('{}'.format(db),'{}'.format(x))
-with d.subgraph() as s:
-    s.attr(rank='same')
-    for idx,row in sc.iterrows():
-        s.node('{}'.format(row['tab']))
-        d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
-col2.st.graphviz_chart(d)
+with col2:
+    d = graphviz.Digraph()
+    with d.subgraph() as s:
+        s.attr(rank='same')
+        s.node('{}'.format(db))  
+    with d.subgraph() as s:
+        s.attr(rank='same')
+        for x in list(sc['sc'].unique()):
+            s.node('{}'.format(x))
+            d.edge('{}'.format(db),'{}'.format(x))
+    with d.subgraph() as s:
+        s.attr(rank='same')
+        for idx,row in sc.iterrows():
+            s.node('{}'.format(row['tab']))
+            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
+    st.graphviz_chart(d)
 
 
 
