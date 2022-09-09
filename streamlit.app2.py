@@ -14,6 +14,7 @@ d = graphviz.Digraph()
 with d.subgraph() as s:
     s.attr(rank='same')
     s.node('A')
+    s.node('X')
     
 
 d.node('C')
