@@ -20,7 +20,7 @@ with col1:
     if sel=='Select Schemas':
         for x in list(sc['sc'].unique()): 
             schemas = st.checkbox('{}'.format(x),False)
-            if schemas=False:
+            if schemas==False:
                 sc = sc.loc[sc['sc']!=x]
         
     
