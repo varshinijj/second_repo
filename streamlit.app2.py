@@ -11,7 +11,7 @@ db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
 col1, col2 = st.columns([1, 4])
-col1.bgcolor='white'
+col1.(bgcolor='white')
 
 with col1:
     sel = ['All Schemas','Select Schemas']
