@@ -19,8 +19,8 @@ with col1:
         if schemas==False:
             sc = sc.loc[sc['sc']!=x]
         else:
-            allschemas = False
-    if allschemas:
+            allschemas=False
+    if allschemas==True:
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
  
 with col2:
