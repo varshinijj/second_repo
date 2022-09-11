@@ -51,11 +51,7 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
-def local_css(x):
-    with open(file_name) as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-local_css(body {background-color: lightgoldenrodyellow;}div[data-testid="stHorizontalBlock"] > div:first-of-type {background-color: red;})
 
 
 
