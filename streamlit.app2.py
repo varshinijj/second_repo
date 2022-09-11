@@ -48,7 +48,7 @@ with col2:
     st.graphviz_chart(d)
     
 
-
+col2.style.set_properties(**{'background-color': 'black','color': 'green'})
 
 
 
