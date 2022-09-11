@@ -15,9 +15,9 @@ def local_css(x):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-local_css(body {
+local_css(body '{
             background-color: lightgoldenrodyellow;
-          }
+          }'
           
           div[data-testid="stHorizontalBlock"] > div:first-of-type {
             background-color: red;
