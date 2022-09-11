@@ -14,8 +14,8 @@ col1, col2 = st.columns([1, 4])
 
 with col1:
     sel = ['All Schemas','Select Schemas']
-    st.radio('Schemas:',sel)
-    if sel=='All Schemas':
+    click = st.radio('Schemas:',sel)
+    if click =='All Schemas':
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
     else:
         for x in list(sc['sc'].unique()): 
