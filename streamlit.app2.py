@@ -28,7 +28,6 @@ with col1:
     
  
 with col2:
-    config = Config(height=500, width=700)
         
     d = graphviz.Digraph()
     d.attr(bgcolor='#0e1117')
