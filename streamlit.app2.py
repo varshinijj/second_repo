@@ -17,9 +17,9 @@ with col1:
     for x in list(sc['sc'].unique()):
         schemas = st.checkbox('{}'.format(x),False)
         if schemas==False:
-            sc =tabd.loc[tabd['db']==db,tabd['sc']!=x][['sc','tab']]
-        if schemas==True:
-            sc = tabd.loc[tabd['db']==db,tabd['sc']==x][['sc','tab']]
+            sc =tabd.loc[tabd['db']==db,tabd['sc']!=x]
+        else:
+            sc = tabd.loc[tabd['db']==db,tabd['sc']==x]
             allschemas = False
     if allschemas:
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
