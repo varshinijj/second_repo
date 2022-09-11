@@ -19,7 +19,7 @@ with col1:
         if schemas==False:
             sc =sc.loc[sc['sc']!=x]
         if schemas==True:
-            sc = tabd.loc[tabd['db']==db,tabd['sc']==x][['sc','tab']] 
+            sc = sc.loc[sc['sc']==x]
             allschemas = False
     if allschemas:
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
