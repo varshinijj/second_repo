@@ -32,7 +32,7 @@ with col2:
  
         
     d = graphviz.Digraph()
-    d.attr(bgcolor='dark')
+    d.attr(bgcolor='verydarkblue')
     
     with d.subgraph() as s:
         s.attr(rank='same')
