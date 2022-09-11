@@ -28,11 +28,11 @@ with col1:
     
  
 with col2:
- 
+    config = Config(height=500, width=700)
         
     d = graphviz.Digraph()
     d.attr(bgcolor='#0e1117')
-    
+    d.config
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'red')  
