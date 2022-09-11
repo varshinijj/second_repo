@@ -31,7 +31,7 @@ with col2:
  
         
     d = graphviz.Digraph()
-    d.attr(bgcolor='grey',sizing_mode="stretch_width")
+    d.attr(bgcolor='grey',rotate=90 )
     
     with d.subgraph() as s:
         s.attr(rank='same')
