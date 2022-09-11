@@ -11,7 +11,11 @@ db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
 col1, col2 = st.columns([1, 4])
+def local_css(x):
+    with open(file_name) as f:
+        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
+local_css(body {background-color: lightgoldenrodyellow;}div[data-testid="stHorizontalBlock"] > div:first-of-type {background-color: red;})
 with col1:
     sel = ['All Schemas','Select Schemas']
     click = st.radio('Schemas:',sel)
@@ -47,8 +51,14 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
+def local_css(x):
+    with open(file_name) as f:
+        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-col2.style.set_properties(**{'background-color': 'white','color': 'green'})
+local_css(body {background-color: lightgoldenrodyellow;}div[data-testid="stHorizontalBlock"] > div:first-of-type {background-color: red;})
+
+
+
 
 
 
