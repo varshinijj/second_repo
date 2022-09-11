@@ -17,26 +17,19 @@ with col1:
     for x in list(sc['sc'].unique()):
         schemas = st.checkbox('{}'.format(x),False)
         if schemas==False:
-            sc =tabd.loc[tabd['db']==db,tabd['sc']!=x]
+            sc = sc.loc[sc['sc']!=x]
         else:
-            sc = tabd.loc[tabd['db']==db,tabd['sc']==x]
             allschemas = False
     if allschemas:
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
  
-        
-        
-            
-
-        
-        
 with col2:
     d = graphviz.Digraph()
-    d.attr(bgcolor='grey', fontcolor='white')
+    d.attr(bgcolor='grey')
     
     with d.subgraph() as s:
         s.attr(rank='same')
-        s.node('{}'.format(db))  
+        s.node('{}'.format(db), fontcolor='white')  
     with d.subgraph() as s:
         s.attr(rank='same')
         for x in list(sc['sc'].unique()):
