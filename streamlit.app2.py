@@ -49,7 +49,7 @@ with col2:
     st.graphviz_chart(d)
     
 st.snow()
-st.balloon()
+st.balloons()
 
 
 
