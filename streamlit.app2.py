@@ -40,7 +40,7 @@ with col2:
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']))
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
-    st.graphviz_chart(d,width=200)
+    st.graphviz_chart(d)
     
 
 
