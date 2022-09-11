@@ -32,7 +32,7 @@ with col2:
  
         
     d = graphviz.Digraph()
-    d.attr(bgcolor='grey')
+    d.attr(bgcolor='purple')
     
     with d.subgraph() as s:
         s.attr(rank='same')
@@ -40,12 +40,12 @@ with col2:
     with d.subgraph() as s:
         s.attr(rank='same')
         for x in list(sc['sc'].unique()):
-            s.node('{}'.format(x))
+            s.node('{}'.format(x), fontcolor='white',color = 'red')
             d.edge('{}'.format(db),'{}'.format(x),label='m', len='1.00')
     with d.subgraph() as s:
         s.attr(rank='same')
         for idx,row in sc.iterrows():
-            s.node('{}'.format(row['tab']))
+            s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
     st.graphviz_chart(d)
     
