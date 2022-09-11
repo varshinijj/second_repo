@@ -17,7 +17,7 @@ with col1:
     st.radio('Schemas:',sel)
     if sel=='All Schemas':
         sc = tabd.loc[tabd['db']==db][['sc','tab']] 
-    if sel=='Select Schemas':
+    else:
         for x in list(sc['sc'].unique()): 
             schemas = st.checkbox('{}'.format(x),False)
             if schemas==False:
