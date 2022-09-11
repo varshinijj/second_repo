@@ -13,15 +13,19 @@ sc = tabd.loc[tabd['db']==db][['sc','tab']]
 col1, col2 = st.columns([1, 4])
 
 with col1:
-    allschemas = st.checkbox('All schemas',True)
-    for x in list(sc['sc'].unique()):
-        schemas = st.checkbox('{}'.format(x),False)
-        if schemas==False:
-            sc = sc.loc[sc['sc']!=x]
-        else:
-            allschemas=False
-    if allschemas==True:
-        sc = tabd.loc[tabd['db']==db][['sc','tab']] 
+    sel = ['All Schemas','Select Schemas']
+    st.radio('Schemas:',sel)
+    if sel=='All Schemas':
+        c = tabd.loc[tabd['db']==db][['sc','tab']] 
+    if sel=='Select Schemas':
+        for x in list(sc['sc'].unique()): 
+            schemas = st.checkbox('{}'.format(x),False)
+            if schemas=False:
+                sc = sc.loc[sc['sc']!=x]
+        
+    
+    
+    
  
 with col2:
     d = graphviz.Digraph()
