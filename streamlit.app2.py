@@ -28,7 +28,9 @@ with col1:
     
  
 with col2:
-    d = graphviz.Digraph()
+ 
+        
+    d = graphviz.Digraph(sizing_mode="stretch_width")
     d.attr(bgcolor='grey')
     
     with d.subgraph() as s:
