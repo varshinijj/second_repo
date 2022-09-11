@@ -30,8 +30,8 @@ with col1:
 with col2:
  
         
-    d = graphviz.Digraph(sizing_mode="stretch_width")
-    d.attr(bgcolor='grey')
+    d = graphviz.Digraph()
+    d.attr(bgcolor='grey',sizing_mode="stretch_width")
     
     with d.subgraph() as s:
         s.attr(rank='same')
