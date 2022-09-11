@@ -13,13 +13,20 @@ sc = tabd.loc[tabd['db']==db][['sc','tab']]
 col1, col2 = st.columns([1, 4])
 
 with col1:
+    allschemas = st.checkbox('All schemas',True)
     for x in list(sc['sc'].unique()):
         schemas = st.checkbox('{}'.format(x),False)
         if schemas==False:
             sc =sc.loc[sc['sc']!=x]
-    allschemas = st.checkbox('All schemas',True)
+        if schemas==True:
+            sc = tabd.loc[tabd['db']==db,tabd['sc'==x]][['sc','tab']] 
+            allschemas = False
     if allschemas:
-        sc = tabd.loc[tabd['db']==db][['sc','tab']]        
+        sc = tabd.loc[tabd['db']==db][['sc','tab']] 
+ 
+        
+        
+            
 
         
         
