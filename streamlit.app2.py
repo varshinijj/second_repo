@@ -41,12 +41,12 @@ with col2:
         s.attr(rank='same')
         for x in list(sc['sc'].unique()):
             s.node('{}'.format(x), fontcolor='white',color = 'red')
-            d.edge('{}'.format(db),'{}'.format(x),label='m', len='1.00')
+            d.edge('{}'.format(db),'{}'.format(x),color = 'white')
     with d.subgraph() as s:
         s.attr(rank='same')
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']))        
+            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
 
