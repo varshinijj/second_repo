@@ -11,17 +11,7 @@ db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
 col1, col2 = st.columns([1, 4])
-def local_css(x):
-    with open(file_name) as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
-
-local_css(body {'
-            background-color: lightgoldenrodyellow';
-          }
-          
-          div[data-testid="stHorizontalBlock"] > div:first-of-type {
-            background-color: red;
-          })
+col1.bgcolor='white'
 
 with col1:
     sel = ['All Schemas','Select Schemas']
