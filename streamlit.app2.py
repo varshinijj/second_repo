@@ -16,10 +16,11 @@ def local_css(x):
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
 local_css(body {
-              background-color: lightgoldenrodyellow;
+            background-color: lightgoldenrodyellow;
           }
+          
           div[data-testid="stHorizontalBlock"] > div:first-of-type {
-              background-color: red;
+            background-color: red;
           })
 
 with col1:
