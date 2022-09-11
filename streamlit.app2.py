@@ -11,17 +11,7 @@ db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
 col1, col2 = st.columns([1, 4])
-def local_css(x):
-    with open(x) as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
-local_css(body {
-            background-color: lightgoldenrodyellow;
-          }
-          
-          div[data-testid="stHorizontalBlock"] > div:first-of-type {
-            background-color: red;
-          })
 
 with col1:
     sel = ['All Schemas','Select Schemas']
@@ -58,7 +48,7 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
-
+st.snow()
 
 
 
