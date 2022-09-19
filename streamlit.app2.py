@@ -39,20 +39,20 @@ with col2:
             s.node('{}'.format(x), fontcolor='white',color = 'red')
             d.edge('{}'.format(db),'{}'.format(x),color = 'white')
     with d.subgraph() as s:
-        for idx,row in sc.iterrows():
-            s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')       
+      sl = []
+      idxl = []  
+      for idx,row in sc.iterrows():
+        if row['sc'] not in sl:    
+          s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
+          d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
+          sl.append(row['sc'])
+          idxl.append(idx)
+ 
     st.graphviz_chart(d)
 
-
-    sl = []
-    idxl = []  
-    for idx,row in sc.iterrows():
-      if row['sc'] not in sl:    
-        s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-        d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
-        sl.append(row['sc'])
-        idxl.append(idx)
+     #   for idx,row in sc.iterrows():
+      #      s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
+       #     d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')      
         
   
 
