@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
         
 from graphviz import Digraph    
 
-digraph {
+Digraph {
   graph[bgcolor = "#FDFDFD"]
   graph [newrank=true] // added
   node[fontname = "helvetica-bold", width = 1.5, height = 0.5, fontsize=12]
