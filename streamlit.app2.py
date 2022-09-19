@@ -49,14 +49,15 @@ with col2:
     st.graphviz_chart(d)
     
  with col3:
-    digraph {
-      rankdir=LR;
-      node [ shape=record ];
-      struct1 [
-          label = "a|b|<port1>c";
-      ];
-    }
-    
+    c = graphviz.digraph {
+        
+        rankdir=LR;
+        node [ shape=record ];
+        struct1 [
+            label = "a|b|<port1>c";
+        ];
+       }
+    st.graphviz_chart(c)
 
 
 
