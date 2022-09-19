@@ -10,7 +10,7 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
-col1, col2,col3 = st.columns([1, 4,5])
+col1, col2 = st.columns([1, 4])
 
 
 with col1:
@@ -30,25 +30,7 @@ with col1:
  
 with col2:
         
-    d = graphviz.Digraph()
-    d.attr(bgcolor='#0e1117')
-    
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        s.node('{}'.format(db), fontcolor='white',color = 'red')  
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        for x in list(sc['sc'].unique()):
-            s.node('{}'.format(x), fontcolor='white',color = 'red')
-            d.edge('{}'.format(db),'{}'.format(x),color = 'white')
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        for idx,row in sc.iterrows():
-            s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
-    st.graphviz_chart(d)
-    
- with col3:
+
     
     c = graphviz.digraph {
         rankdir=LR;
