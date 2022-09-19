@@ -5,23 +5,29 @@ st.set_page_config(layout="wide")
 
         
 from graphviz import Digraph    
-g = graphviz.Graph('G', filename='fdpclust.gv', engine='fdp')
+digraph cats {
+  subgraph cluster_big_cats {
+    // This subgraph is a cluster, because the name begins with "cluster"
+    
+    "Lion";
+    "Snow Leopard";
+  }
 
-g.node('e')
+  subgraph domestic_cats {
+    // This subgraph is also a cluster, because cluster=true.
+    cluster=true;
 
-with g.subgraph(name='clusterA') as a:
-    a.edge('a', 'b')
-    with a.subgraph(name='clusterC') as c:
-        c.edge('C', 'D')
+    "Siamese";
+    "Persian";
+  }
 
-with g.subgraph(name='clusterB') as b:
-    b.edge('d', 'f')
-
-g.edge('d', 'D')
-g.edge('e', 'clusterB')
-g.edge('clusterC', 'clusterB')
-
-g.view()
+  subgraph not_a_cluster {
+    // This subgraph is not a cluster, because it doesn't start with "cluster",
+    // nor sets cluster=true.
+    
+    "Wildcat";
+  }
+}
 
 
 
