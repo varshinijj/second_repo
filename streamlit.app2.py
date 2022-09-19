@@ -49,7 +49,7 @@ with col2:
           idxl.append(idx)
  
     st.graphviz_chart(d)
-
+    sc
      #   for idx,row in sc.iterrows():
       #      s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
        #     d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')      
