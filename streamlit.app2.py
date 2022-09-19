@@ -59,7 +59,22 @@ with col2:
 }
     ''')
 
+    st.graphviz_chart('''
+        digraph {
+  rankdir=LR;
+  node [ shape=record ];
 
+  struct1 [
+      label = "a|b|<port1>c";
+  ];
+  
+  struct2 [
+      label = "a|{<port2>b1|b2}|c";
+  ];
+  
+  struct1:port1 -> struct2:port2 [ label="xyz" ];
+}
+    ''')
   
 
 
