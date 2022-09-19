@@ -65,10 +65,10 @@ with col2:
   node [ shape=record ];
 
   struct1 [
-      label = "{}".format(db);
+      label = "{}";
   ];
 }
-    ''')
+    ''').format(db)
   
 
 
