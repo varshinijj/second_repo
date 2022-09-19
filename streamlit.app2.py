@@ -29,11 +29,7 @@ with col1:
     
  
 with col2:
-        
-
-    
-    c = graphviz.digraph {
-        rankdir=LR;
+    c = graphviz.digraph {rankdir=LR;
         node [ shape=record ];
         struct1 [
             label = "a|b|<port1>c";
