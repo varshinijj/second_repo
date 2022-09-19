@@ -27,9 +27,12 @@ with col1:
             schemas = st.checkbox('{}'.format(x),False,disabled=False)
             if schemas==False:
                 sc = sc.loc[sc['sc']!=x]
+   
+        
+        
+with col2:   
     d = graphviz.Digraph()
-    d.attr(bgcolor='#0e1117')
-    
+    d.attr(bgcolor='#0e1117',orientation=90) 
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'red')  
@@ -42,7 +45,12 @@ with col1:
         s.attr(rank='same')
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
+            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white') 
+                subgraph cluster_0{
+       node[shape ="rectangle" pos="0,0!"] "name0";
+       node[shape ="rectangle" pos="1,0!"] "name1";
+       node[shape ="rectangle" pos="2,0!"] "name2";
+}
     st.graphviz_chart(d)
 
 
