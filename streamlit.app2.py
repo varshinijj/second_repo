@@ -47,44 +47,18 @@ with col2:
     st.graphviz_chart(d)
 
     st.graphviz_chart('''
-        digraph G {
-	fontname="Helvetica,Arial,sans-serif"
-	node [fontname="Helvetica,Arial,sans-serif"]
-	edge [fontname="Helvetica,Arial,sans-serif"]
-
-	subgraph cluster_0 {
-		style=filled;
-		color=lightgrey;
-		node [style=filled,color=white];
-		a0 -> a1 -> a2 -> a3;
-		label = "process #1";
-	}
-
-	subgraph cluster_1 {
-		node [style=filled];
-		b0 -> b1 -> b2 -> b3;
-		label = "process #2";
-		color=blue
-	}
-	start -> a0;
-	start -> b0;
-	a1 -> b3;
-	b2 -> a3;
-	a3 -> a0;
-	a3 -> end;
-	b3 -> end;
-
-	start [shape=Mdiamond];
-	end [shape=Msquare];
+        digraph ok {
+  subgraph cluster_0{
+     { rank=same  // all nodes on same rank
+       node [shape ="rectangle"]    // for all nodes in this subgraph
+       edge [style=invis]           // for all edges, invisible links
+       // we use the invisible edges to establish their sequence (kludge)
+       name0 ->  name1 ->  name2 
+     }
+  }
 }
     ''')
 
-st.graphviz_chart('''
-    digraph {
-        db
-        
-    }
-''')
 
   
 
