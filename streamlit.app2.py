@@ -46,11 +46,7 @@ with col2:
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white') 
-                subgraph cluster_0{
-       node[shape ="rectangle" pos="0,0!"] "name0";
-       node[shape ="rectangle" pos="1,0!"] "name1";
-       node[shape ="rectangle" pos="2,0!"] "name2";
-}
+
     st.graphviz_chart(d)
 
 
