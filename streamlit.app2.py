@@ -81,10 +81,8 @@ with col2:
 
 st.graphviz_chart('''
     digraph {
-        '{}'.format(db) -> Tuna
-        Tuna -> Mackerel
-        Mackerel -> Small_fishes
-        Small_fishes -> Shrimp
+        blk -> Tuna
+        
     }
 ''')
 
