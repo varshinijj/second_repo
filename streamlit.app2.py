@@ -50,7 +50,7 @@ with col2:
         else:
             if idx not in idxl:
                 s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-                d.edge('{}'.format(row['tab'][idx-1]),'{}'.format(row['tab']),color='white')
+                d.edge('{}'.format([row['tab']][idx-1]),'{}'.format(row['tab']),color='white')
                 idxl.append(idx)
                 
 
