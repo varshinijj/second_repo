@@ -5,5 +5,8 @@ streamlit_tags
 streamlit_agraph
 graphviz
 matplotlib
+cmakelang==0.6.13
+pylint==2.13.9
+pytest==7.0.1
 
 
