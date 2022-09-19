@@ -29,7 +29,7 @@ with col1:
                 
 with col2:                
     d = graphviz.Digraph()
-    d.attr(bgcolor='#0e1117',orientation="landscape")
+    d.attr(bgcolor='#0e1117')
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'red')  
