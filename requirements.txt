@@ -5,6 +5,5 @@ streamlit_tags
 streamlit_agraph
 graphviz
 matplotlib
-cluster 
 
 
