@@ -43,14 +43,14 @@ with col2:
       idxl = []  
       for idx,row in sc.iterrows():
         if row['sc'] not in sl:    
-          s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-          d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
+          s.node('{}'.format(sc['tab']),shape='tab', fontcolor='white',color = 'white')
+          d.edge('{}'.format(sc['sc']),'{}'.format(sc['tab']),color='white')
           sl.append(row['sc'])
           idxl.append(idx)
         else:
             if idx not in idxl:
-                s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-                d.edge('{}'.format([row['tab']][idx-1]),'{}'.format(row['tab']),color='white')
+                s.node('{}'.format(sc['tab']),shape='tab', fontcolor='white',color = 'white')
+                d.edge('{}'.format(sc['tab'][idx-1]),'{}'.format(sc['tab']),color='white')
                 idxl.append(idx)
                 
 
