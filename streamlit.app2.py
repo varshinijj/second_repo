@@ -40,10 +40,9 @@ with col2:
             s.node('{}'.format(x), fontcolor='white',color = 'red')
             d.edge('{}'.format(db),'{}'.format(x),color = 'white')
     with d.subgraph() as s:
-        
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')       
+            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')       
     st.graphviz_chart(d)
 
 
