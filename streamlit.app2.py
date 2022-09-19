@@ -38,7 +38,7 @@ with col2:
         s.node('{}'.format(db), fontcolor='white',color = 'white')  
     G = graphviz.digraph(        
             node['{}'.format(db)] 
-            ;)
+            )
 
 
     st.graphviz_chart(d)
