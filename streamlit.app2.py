@@ -49,8 +49,8 @@ with col2:
     st.graphviz_chart(d)
     
  with col3:
+    
     c = graphviz.digraph {
-        
         rankdir=LR;
         node [ shape=record ];
         struct1 [
