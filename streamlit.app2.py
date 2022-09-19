@@ -38,14 +38,7 @@ with col2:
         s.node('{}'.format(db), fontcolor='white',color = 'white')  
     G = graphviz.digraph(        
             main -> parse -> execute;
-            main -> init;
-            main -> cleanup;
-            execute -> make_string;
-            execute -> printf
-            init -> make_string;
-            main -> printf;
-            execute -> compare;
-         )
+            main -> init;)
 
 
     st.graphviz_chart(d)
