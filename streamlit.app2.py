@@ -31,8 +31,8 @@ with col1:
         
         
 with col2:   
-    d = graphviz.Digraph()
-    d.attr(rotate=90)
+    d = graphviz.Digraph(rotate=90)
+    
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'red')  
