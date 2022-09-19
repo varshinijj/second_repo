@@ -51,7 +51,7 @@ with col2:
       if row['sc'] not in sl:    
         s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
         d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
-        schemalist.append(row['sc'])
+        sl.append(row['sc'])
         idxl.append(idx)
         
   
