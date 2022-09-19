@@ -4,11 +4,14 @@ import graphviz
 st.set_page_config(layout="wide")        
 from graphviz import Digraph    
 
-
-digraph {
-  abc [color = red]
-}
-
+st.graphviz_chart('''
+    digraph {
+        Big_shark -> Tuna
+        Tuna -> Mackerel
+        Mackerel -> Small_fishes
+        Small_fishes -> Shrimp
+    }
+''')
 
 
 
