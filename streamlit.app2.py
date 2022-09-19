@@ -81,10 +81,10 @@ with col2:
 
 st.graphviz_chart('''
     digraph {
-        blk 
+        {} 
         
     }
-''')
+'''.format(db))
 
   
 
