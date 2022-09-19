@@ -29,7 +29,7 @@ with col1:
                 
 with col2:                
     d = graphviz.Digraph()
-    d.attr(bgcolor='#0e1117')
+    d.attr(bgcolor='#0e1117',orientation=L)
     
     with d.subgraph() as s:
         s.attr(rank='same')
@@ -46,18 +46,7 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
 
-    st.graphviz_chart('''
-        digraph ok {
-  subgraph cluster_0{
-     { 
-       node [shape ="rectangle"]    
-       edge [style=invis]        
-       
-       name0 ->  name1 ->  name2 
-     }
-  }
-}
-    ''')
+
 
     
   
