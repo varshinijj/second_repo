@@ -36,18 +36,20 @@ with col2:
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'white')  
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        for x in list(sc['sc'].unique()):
-            s.node('{}'.format(x), fontcolor='white',color = 'white')
-            d.edge('{}'.format(db),'{}'.format(x),color = 'white')
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        for idx,row in sc.iterrows():
-            s.node('{}'.format(row['tab']), fontcolor='white',color = 'white')
-            d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white') 
+    G = graphviz.digraph{            
+            main -> parse -> execute;
+            main -> init;
+            main -> cleanup;
+            execute -> make_string;
+            execute -> printf
+            init -> make_string;
+            main -> printf;
+            execute -> compare;
+        }
+
 
     st.graphviz_chart(d)
+    st.graphviz_chart(G)    
 
 
 
