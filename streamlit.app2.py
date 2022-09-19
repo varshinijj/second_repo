@@ -65,7 +65,8 @@ with col2:
   node [ shape=record ];
 
   struct1 [
-      label = "a|b|c";
+      label = "tables";
+      '{}'.format(db)
   ];
 }
     ''')
