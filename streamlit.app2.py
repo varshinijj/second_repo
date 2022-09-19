@@ -4,7 +4,7 @@ import graphviz
 st.set_page_config(layout="wide")
 
         
-    
+from graphviz import Digraph    
     
     
  
