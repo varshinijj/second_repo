@@ -49,10 +49,10 @@ with col2:
     st.graphviz_chart('''
         digraph ok {
   subgraph cluster_0{
-     { rank=same  // all nodes on same rank
-       node [shape ="rectangle"]    // for all nodes in this subgraph
-       edge [style=invis]           // for all edges, invisible links
-       // we use the invisible edges to establish their sequence (kludge)
+     { 
+       node [shape ="rectangle"]    
+       edge [style=invis]        
+       
        name0 ->  name1 ->  name2 
      }
   }
