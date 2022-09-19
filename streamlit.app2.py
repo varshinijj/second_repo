@@ -6,8 +6,8 @@ from graphviz import Digraph
 
 st.graphviz_chart('''
     digraph ok {
-  subgraph cluster_0{
-     { rank=same  // all nodes on same rank
+     subgraph cluster_0{
+     { 
        node [shape ="rectangle"]    // for all nodes in this subgraph
        edge [style=invis]           // for all edges, invisible links
        // we use the invisible edges to establish their sequence (kludge)
