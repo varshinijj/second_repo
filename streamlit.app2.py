@@ -56,8 +56,10 @@ with col2:
 		style=filled;
 		color=lightgrey;
 		node [style=filled,color=white];
-		a0 -> a1 -> a2 -> a3;
-		label = "process #1";
+		for x in list(sc['sc'].unique()):
+		    '{}'.format(x)
+		
+		;
 	}
 
 	subgraph cluster_1 {
