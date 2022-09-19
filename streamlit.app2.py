@@ -36,7 +36,7 @@ with col2:
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'white')  
-    G = graphviz.digraph() {            
+    G = graphviz.digraph(        
             main -> parse -> execute;
             main -> init;
             main -> cleanup;
@@ -45,7 +45,7 @@ with col2:
             init -> make_string;
             main -> printf;
             execute -> compare;
-        }
+         )
 
 
     st.graphviz_chart(d)
