@@ -65,7 +65,7 @@ with col2:
   node [ shape=record ];
 
   struct1 [
-      label = "a|b|<port1>c";
+      label = "a|b|c";
   ];
 }
     ''')
