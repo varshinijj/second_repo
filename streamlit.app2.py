@@ -48,9 +48,10 @@ with col2:
 
     st.graphviz_chart('''
         digraph d {
-        
+        bgcolor='#0e1117';
         
          subgraph cluster_0{
+         bgcolor='#0e1117';
          { 
            node [shape ="rectangle",fontcolor ="white",color="white"]    
            edge [style=invis]         
