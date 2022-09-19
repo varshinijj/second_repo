@@ -45,14 +45,14 @@ with col2:
     st.graphviz_chart(d)
 
 
-      sl = []
-      idxl = []  
-      for idx,row in sc.iterrows():
-        if row['sc'] not in sl:    
-          s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-          d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
-          schemalist.append(row['sc'])
-          idxl.append(idx)
+    sl = []
+    idxl = []  
+    for idx,row in sc.iterrows():
+      if row['sc'] not in sl:    
+        s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
+        d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
+        schemalist.append(row['sc'])
+        idxl.append(idx)
         
   
 
