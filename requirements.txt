@@ -5,3 +5,14 @@ streamlit_tags
 streamlit_agraph
 graphviz
 matplotlib
+
+
+lmdb
+networkx
+nltk 
+numpy 
+pandas 
+Pattern 
+scikit-learn 
+scipy
+
