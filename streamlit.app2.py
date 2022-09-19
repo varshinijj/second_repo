@@ -57,8 +57,8 @@ with col2:
 		color=lightgrey;
 		node [style=filled,color=white];
 		for x in list(sc['sc'].unique()):
-		    '{}'.format(x)
-		
+		    ('{}'.format(x))->
+		    
 		;
 	}
 
