@@ -32,7 +32,7 @@ with col1:
         
 with col2:   
     d = graphviz.Digraph()
-    d.attr(orientation=90) 
+    d.attr(orientation=90.0) 
     with d.subgraph() as s:
         s.attr(rank='same')
         s.node('{}'.format(db), fontcolor='white',color = 'red')  
