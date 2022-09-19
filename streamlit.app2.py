@@ -33,7 +33,7 @@ with col2:
     
     with d.subgraph() as s:
         s.attr(rank='same')
-        s.node('{}'.format(db), fontcolor='white',color = 'red')  
+        s.node('{}'.format(db), fontcolor='white',color = 'red',orientation =90.0)  
     with d.subgraph() as s:
         s.attr(rank='same')
         for x in list(sc['sc'].unique()):
