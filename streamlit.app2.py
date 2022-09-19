@@ -31,7 +31,7 @@ with col1:
         
         
 with col2:   
-    d = graphviz.Digraph(rotate=90)
+    d = graphviz.Digraph()
     
     with d.subgraph() as s:
         s.attr(rank='same')
@@ -47,7 +47,7 @@ with col2:
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white') 
 
-    st.graphviz_chart(d)
+    st.graphviz_chart(d.rotate=90)
 
 
 
