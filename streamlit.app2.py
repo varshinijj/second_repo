@@ -10,7 +10,7 @@ tabd['tab'] = ['tab111','tab112','tab121','tab122','tab131','tab132','tab211','t
 db = st.sidebar.selectbox("choose db:",tabd['db'])
 sc = tabd.loc[tabd['db']==db][['sc','tab']]
 
-col1, col2 = st.columns([1, 4])
+col1, col2,col3 = st.columns([1, 4,5])
 
 
 with col1:
@@ -48,7 +48,14 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
- 
+ with col3:
+    digraph {
+      rankdir=LR;
+      node [ shape=record ];
+      struct1 [
+          label = "a|b|<port1>c";
+      ];
+    }
     
 
 
