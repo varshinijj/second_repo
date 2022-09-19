@@ -39,7 +39,7 @@ with col2:
         for x in list(sc['sc'].unique()):
             s.node('{}'.format(x), fontcolor='white',color = 'red')
             d.edge('{}'.format(db),'{}'.format(x),color = 'white')
-    with d.subgraph(cluster) as s:
+    with d.subgraph() as s:
         s.attr(rank='same')
         for idx,row in sc.iterrows():
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
