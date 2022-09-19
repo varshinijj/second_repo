@@ -47,7 +47,7 @@ with col2:
             s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white') 
 
-    st.graphviz_chart()
+    st.graphviz_chart(d)
 
 
 
