@@ -48,10 +48,8 @@ with col2:
             d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white')        
     st.graphviz_chart(d)
     
-st.spinner(text="In progress...")    
+ 
     
-st.snow()
-st.balloons()
 
 
 
