@@ -84,7 +84,7 @@ st.graphviz_chart('''
         '{}' 
         
     }
-'''.format(db))
+''').format(db)
 
   
 
