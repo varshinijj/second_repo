@@ -47,7 +47,11 @@ with col2:
           d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
           sl.append(row['sc'])
           idxl.append(idx)
- 
+        else:
+            if idx not in idxl:
+                s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
+                d.edge('{}'.format(row['tab']),'{}'.format(row['tab']),color='white')
+                idxl.append(idx)
     st.graphviz_chart(d)
     sc
      #   for idx,row in sc.iterrows():
