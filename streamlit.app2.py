@@ -39,19 +39,13 @@ with col2:
             s.node('{}'.format(x), fontcolor='white',color = 'red')
             d.edge('{}'.format(db),'{}'.format(x),color = 'white')
     with d.subgraph() as s:
-      sl = []
-      idxl = []  
-      for idx,row in sc.iterrows():
-        if row['sc'] not in sl:    
-          s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-          d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color='white')
-          sl.append(row['sc'])
-          idxl.append(idx)
-        else:
-            if idx not in idxl:
-                s.node('{}'.format(row['tab']),shape='tab', fontcolor='white',color = 'white')
-                d.edge('{}'.format(sc['tab'][idx-1]),'{}'.format(row['tab']),color='white')
-                idxl.append(idx)
+        sl = []
+        for idx,row in sc.iterrows():
+          if row['sc'] not in sl:   
+            s.node('{}'.format(sc.loc[sc['sc']==row['sc']]['tab']),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(sc.loc[sc['sc']==row['sc']]['tab']),color='white')
+            sl.append(row['sc'])
+       
                 
 
     st.graphviz_chart(d)
