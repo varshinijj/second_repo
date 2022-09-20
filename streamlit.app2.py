@@ -42,8 +42,8 @@ with col2:
         sl = []
         for idx,row in sc.iterrows():
           if row['sc'] not in sl:   
-            s.node('{}'.format(sc.loc[sc['sc']==row['sc']]['tab']),shape='tab', fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(sc.loc[sc['sc']==row['sc']]['tab']),color='white')
+            s.node('{}'.format(sc.loc[sc['sc']==row['sc']][['tab']]),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(sc.loc[sc['sc']==row['sc']][['tab']]),color='white')
             sl.append(row['sc'])
        
                 
