@@ -48,8 +48,8 @@ with col2:
             l = []
             for x in lala['TABLE_NAME']:
               l.append(x)
-            s.node('{}'.format(print(l, sep="\n")),shape='tab', fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(print(l, sep="\n")),color='white')
+            s.node('{}'.format(print(l)),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(print(l)),color='white')
             sl.append(row['sc'])
        
                 
