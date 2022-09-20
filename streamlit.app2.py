@@ -43,8 +43,8 @@ with col2:
         for idx,row in sc.iterrows():
           if row['sc'] not in sl:
             lala= sc.loc[sc['sc']==row['sc']][['tab']]
-            lala = lala.reset_index(drop=True)
             lala.rename(columns = {'tab':'TABLE_NAME'}, inplace = True)
+            lala = lala.set_index('TABLE_NAME')
             s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
             sl.append(row['sc'])
