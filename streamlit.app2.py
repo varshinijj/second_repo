@@ -45,10 +45,12 @@ with col2:
             lala= sc.loc[sc['sc']==row['sc']][['tab']]
             lala = lala.reset_index(drop=True)
             lala.rename(columns = {'tab':'TABLE_NAME'}, inplace = True)
+            l = []
             for x in lala['TABLE_NAME']:
-              s.node('{}'.format(x),shape='tab', fontcolor='white',color = 'red')
-              d.edge('{}'.format(row['sc']),'{}'.format(x),color='white')
-              sl.append(row['sc'])
+              l.append(x)
+            s.node('{}'.format(l),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(l),color='white')
+            sl.append(row['sc'])
        
                 
 
