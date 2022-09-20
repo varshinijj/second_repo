@@ -44,7 +44,7 @@ with col2:
           if row['sc'] not in sl:
             lala= sc.loc[sc['sc']==row['sc']][['tab']]
             lala = lala.reset_index(drop=True)
-            lala
+            lala.rename(columns = {'tab':'TABLE_NAME'}, inplace = True)
             s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
             sl.append(row['sc'])
