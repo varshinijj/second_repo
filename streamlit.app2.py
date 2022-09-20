@@ -43,7 +43,7 @@ with col2:
         for idx,row in sc.iterrows():
           if row['sc'] not in sl:
             lala= sc.loc[sc['sc']==row['sc']][['tab']]
-            
+            lala = lala.drop(lala.columns[0],axis=1)
             lala
             s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red')
             d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
