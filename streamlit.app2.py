@@ -41,9 +41,11 @@ with col2:
     with d.subgraph() as s:
         sl = []
         for idx,row in sc.iterrows():
-          if row['sc'] not in sl:   
-            s.node('{}'.format(sc.loc[sc['sc']==row['sc']][['tab']].set_index('tab')),shape='tab', fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(sc.loc[sc['sc']==row['sc']][['tab']].set_index('tab')),color='white')
+          if row['sc'] not in sl:
+            lala= sc.loc[sc['sc']==row['sc']][['tab']]
+            lala = lala.set_index('tab')
+            s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
             sl.append(row['sc'])
        
                 
