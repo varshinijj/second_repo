@@ -45,9 +45,9 @@ with col2:
             lala= sc.loc[sc['sc']==row['sc']][['tab']]
             lala = lala.reset_index(drop=True)
             lala.rename(columns = {'tab':'TABLE_NAME'}, inplace = True)
-            lala= pd.DataFrame(lala)
-            s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red')
-            d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
+            
+            s.node('{}'.format(lala['TABLE_NAME']),shape='tab', fontcolor='white',color = 'red')
+            d.edge('{}'.format(row['sc']),'{}'.format(lala['TABLE_NAME']),color='white')
             sl.append(row['sc'])
        
                 
