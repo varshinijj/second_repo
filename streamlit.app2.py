@@ -53,7 +53,7 @@ with col2:
                 
 
     st.graphviz_chart(d)
-    
+    name = st.text_input()
      #   for idx,row in sc.iterrows():
       #      s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
        #     d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')      
