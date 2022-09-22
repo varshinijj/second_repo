@@ -59,7 +59,7 @@ def all_data():
       if click2 =='All Tables':
         pass
       else:
-        tables = st.multiselect('',list(sc_tb['TABLE_NAME']),key=1)
+        tables = st.multiselect('',list(sc_tb['TABLE_NAME']),key=4)
         tables = (str(tables)[1:-1])
         tables #testing purpose
         for n in list(sc_tb['TABLE_NAME']):
