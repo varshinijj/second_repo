@@ -44,7 +44,7 @@ def schemas_tables():
   with tab1:
     col1, col2 = st.columns([8,2])
     with col1:
-      select = ['Select Schemas','All Schemas']
+      select = ['All Schemas','Select Schemas']
       click = st.radio('SCHEMAS',select,key=2,horizontal=True)
   
       if click =='All Schemas':
@@ -58,7 +58,7 @@ def schemas_tables():
             sc = sc.loc[sc['SCHEMA']!=n]
             sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
             
-      click2 = st.radio('TABLES',['Select Tables','All Tables'],key=3,horizontal=True) 
+      click2 = st.radio('TABLES',['All Tables','Select Tables'],key=3,horizontal=True) 
       if click2 =='All Tables':
         pass
       else:
@@ -70,8 +70,7 @@ def schemas_tables():
             sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
   return sc_tb          
             
-if st.sidebar.button("Apply",key=7):
-  st.experimental_memo.clear()           
+          
             
 def classify():     
    
@@ -91,7 +90,10 @@ def classify():
          tags_tb = tags_pivot[['SCHEMA','TABLE_NAME']]
          tags_tb_grouped = tags_tb.groupby(['SCHEMA','TABLE_NAME']).size().reset_index(name='no.of.sensitive_col')
          alldatatypes = alldatatypes.rename(columns = {'TABLE_NAME':'TABLE NAME','ÇOLUMN_NAME':'COLUMN NAME','DATA_TYPE':'DATA TYPE'})
+         sc_tb
+         tags_pivot 
          display=pd.merge(sc_tb,tags_pivot, on=['SCHEMA'], how='inner').rename(columns={('TABLE_NAME',''):'TABLE NAME',('COLUMN_NAME',''):'COLUMN NAME',('TAG_VALUE','SEMANTIC_CATEGORY'):'SEMANTIC CATEGORY',('TAG_VALUE','PRIVACY_CATEGORY'):'PRIVACY CATEGORY'})
+         display
          final = pd.merge(display,alldatatypes,left_on=['DATABASE','SCHEMA','TABLE NAME','COLUMN NAME'],right_on=['DATABASE','SCHEMA','TABLE NAME','COLUMN_NAME'], how = 'left').drop(['COLUMN_NAME'],axis=1)
          final = final[['DATABASE','SCHEMA','TABLE NAME','COLUMN NAME','DATA TYPE','PRIVACY CATEGORY','SEMANTIC CATEGORY']]
          final
