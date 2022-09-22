@@ -39,7 +39,7 @@ def convert_df(df):
   return df.to_csv().encode('utf-8')
 
 ##final
-@st.experimental_memo
+@st.experimental_memo(suppress_st_warning=True)
 def all_data():
   st.sidebar.title("Choose Database to Classify")
   DB = st.sidebar.radio('Available Databases:',all_databases())
@@ -67,8 +67,6 @@ def all_data():
 table = all_data()
 
 if st.button("Clear All"):
-    # Clear values from *all* memoized functions:
-    # i.e. clear values from both square and cube
     st.experimental_memo.clear()
 
 
