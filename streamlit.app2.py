@@ -22,9 +22,7 @@ cur = conn.cursor()
 
 
 
-if st.button("Clear All"):
-    # Clear values from *all* memoized functions:
-    # i.e. clear values from both square and cube
+if st.sidebar.button("Apply"):
     st.experimental_memo.clear()
 
 ##DB
@@ -66,8 +64,7 @@ def all_data():
 
 table = all_data()
 
-with st.sidebar:
-  st.experimental_memo.clear()
+
 
 
 
