@@ -69,7 +69,7 @@ def schemas_tables():
             
             
             
- def classify():           
+def classify():           
    sc_tb = schemas_tables()        
    if sc_tb.shape[0]!=0:
      alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
