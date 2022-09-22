@@ -31,6 +31,34 @@ def schema_sc():
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
   return sc
 
+sc = schema_sc()
+
+def schema_sc_tb():
+  sc_tb = pd.read_sql("select TABLE_SCHEMA AS SCHEMA,TABLE_NAME from {}.information_schema.TABLES where TABLE_SCHEMA != 'INFORMATION_SCHEMA';".format(DB),conn)
+  return sc_tb
+
+sc_tb = schema_sc_tb()
+
+tab1, tab2 = st.tabs(["Detailed view",  "overview"])
+
+####col1--selecting schemas, classifying and if classified---removing the tags option####
+with tab1:
+  col1, col2 = st.columns([8,2])
+  with col1:
+  
+####selecting schemas####
+    
+    select = ['All Schemas','Select Schemas']
+    click = st.radio('Choose Schema:',select,key=2,horizontal=True)
+    
+    if click =='All Schemas':
+      pass
+    else:
+      for x in list(sc['SCHEMA']):
+        schemas = st.checkbox('{}'.format(x),False)
+        if schemas==False:
+          sc = sc.loc[sc['SCHEMA']!=x]
+          sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=x] 
 
 
 
