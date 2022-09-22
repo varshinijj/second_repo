@@ -47,13 +47,13 @@ def all_data():
       if click =='All Schemas':
         pass
       else:
-        
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
         schema
-        for n in schema:
-          sc = sc.loc[sc['SCHEMA']==schema]
-          sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schema]
+        for n in list(sc['SCHEMA']):
+          if n is not in schema:
+            sc = sc.loc[sc['SCHEMA']!=n]
+            sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
             
       if sc_tb.shape[0]!=0:
         alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
