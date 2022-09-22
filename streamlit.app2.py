@@ -21,12 +21,11 @@ cur = conn.cursor()
 
 def all_databases():
   db_data = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA') and deleted is null;",conn)
-  dbs = list(set(list(db_data['DATABASE'])))
+  dbs = list(set(db_data['DATABASE']))
   st.sidebar.title("Choose Database to Classify")
-  DB = st.sidebar.radio('Available Databases:',all_databases())
-  return DB
+  return dbs
 
-DB = all_databases()
+DB = st.sidebar.radio('Available Databases:',all_databases())
 
 def schema_sc():
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
