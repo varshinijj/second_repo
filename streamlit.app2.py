@@ -25,7 +25,10 @@ def all_databases():
   dbs = list(set(db_data['DATABASE']))
   return dbs
 
-
+st.sidebar.title("Choose Database to Classify")
+DB = st.sidebar.radio('Available Databases:',all_databases())
+  
+  
 ##export
 def convert_df(df):
   return df.to_csv().encode('utf-8')
@@ -71,8 +74,7 @@ if st.sidebar.button("Apply"):
     st.experimental_memo.clear()            
             
 def classify():     
-   st.sidebar.title("Choose Database to Classify")
-   DB = st.sidebar.radio('Available Databases:',all_databases())
+   
    sc_tb = schemas_tables()        
    if sc_tb.shape[0]!=0:
      alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
