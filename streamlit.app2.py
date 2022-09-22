@@ -34,17 +34,6 @@ def schema_sc():
 
 
 
-def schema_sc_tb():
-  sc = schema_sc()
-  sc_tb = pd.read_sql("select TABLE_SCHEMA AS SCHEMA,TABLE_NAME from {}.information_schema.TABLES where TABLE_SCHEMA != 'INFORMATION_SCHEMA';".format(DB),conn)
-  return sc_tb
-
-tab1, tab2 = st.tabs(["Detailed view",  "Overview"])
-
-####col1--selecting schemas, classifying and if classified---removing the tags option####
-
-
-
 
 
 
