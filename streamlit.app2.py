@@ -66,8 +66,8 @@ def all_data():
 
 table = all_data()
 
-
-st.experimental_memo.clear()
+with st.sidebar:
+  st.experimental_memo.clear()
 
 
 
