@@ -49,8 +49,9 @@ def all_data():
       else:
         
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
-        sc = sc.loc[sc['SCHEMA']==schemas]
-        sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schemas]
+        schema= (str(schemas)[1:-1])
+        sc = sc.loc[sc['SCHEMA']==schema]
+        sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schema]
             
       if sc_tb.shape[0]!=0:
         alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
