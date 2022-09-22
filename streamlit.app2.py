@@ -47,7 +47,8 @@ def all_data():
       if click =='All Schemas':
         pass
       else:
-        schemas = st.multiselect(''.format(list(sc['SCHEMA'])))
+        
+        schemas = st.multiselect('',list(sc['SCHEMA']))
         sc = sc.loc[sc['SCHEMA']==schemas]
         sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schemas]
             
