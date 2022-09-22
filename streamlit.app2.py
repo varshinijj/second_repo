@@ -42,18 +42,29 @@ def all_data():
     col1, col2 = st.columns([8,2])
     with col1:
       select = ['All Schemas','Select Schemas']
-      click = st.radio('Choose Schema:',select,key=2,horizontal=True)
+      click = st.radio('',select,key=2,horizontal=True)
   
       if click =='All Schemas':
         pass
       else:
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
-        schema
+        schema #testing purpose
         for n in list(sc['SCHEMA']):
           if n not in schema:
             sc = sc.loc[sc['SCHEMA']!=n]
             sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
+            
+      click2 = st.radio('',['All Tables','Select Tables'],key=3,horizontal=True) 
+      if click2 =='All Tables':
+        pass
+      else:
+        tables = st.multiselect('',list(sc_tb['TABLE_NAME']),key=1)
+        tables = (str(tables)[1:-1])
+        tables #testing purpose
+        for n in list(sc_tb['TABLE_NAME']):
+          if n not in tables:
+            sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
             
       if sc_tb.shape[0]!=0:
         alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
