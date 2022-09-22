@@ -63,7 +63,7 @@ def all_data():
   return sc           
 
 
-sc = all_data()
+table = all_data()
 
 
 
