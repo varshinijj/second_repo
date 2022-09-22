@@ -34,7 +34,7 @@ def convert_df(df):
   return df.to_csv().encode('utf-8')
 
 ##final
-@st.experimental_memo(suppress_st_warning=True)
+
 def schemas_tables():
   
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
