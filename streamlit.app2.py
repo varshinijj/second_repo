@@ -66,7 +66,7 @@ def all_data():
 
 table = all_data()
 
-if st.button("Clear All"):
+if st.button("Clear All",key=1):
     st.experimental_memo.clear()
 
 
