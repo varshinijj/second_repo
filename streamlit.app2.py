@@ -50,6 +50,7 @@ def all_data():
         
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
+        schema
         for n in schema:
           sc = sc.loc[sc['SCHEMA']==schema]
           sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schema]
