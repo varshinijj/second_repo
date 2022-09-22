@@ -44,7 +44,7 @@ def schemas_tables():
   with tab1:
     col1, col2 = st.columns([8,2])
     with col1:
-      select = ['All Schemas','Select Schemas']
+      select = ['Select Schemas','All Schemas']
       click = st.radio('SCHEMAS',select,key=2,horizontal=True)
   
       if click =='All Schemas':
@@ -58,7 +58,7 @@ def schemas_tables():
             sc = sc.loc[sc['SCHEMA']!=n]
             sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
             
-      click2 = st.radio('TABLES',['All Tables','Select Tables'],key=3,horizontal=True) 
+      click2 = st.radio('TABLES',['Select Tables','All Tables'],key=3,horizontal=True) 
       if click2 =='All Tables':
         pass
       else:
