@@ -22,14 +22,16 @@ cur = conn.cursor()
 def all_databases():
   db_data = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA') and deleted is null;",conn)
   dbs = list(set(list(db_data['DATABASE'])))
-  return dbs
-
-
-def schema_sc():
   st.sidebar.title("Choose Database to Classify")
   DB = st.sidebar.radio('Available Databases:',all_databases())
+  return DB
+
+DB = all_databases()
+
+def schema_sc():
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
   return sc
+
 
 
 def schema_sc_tb():
@@ -37,8 +39,11 @@ def schema_sc_tb():
   sc_tb = pd.read_sql("select TABLE_SCHEMA AS SCHEMA,TABLE_NAME from {}.information_schema.TABLES where TABLE_SCHEMA != 'INFORMATION_SCHEMA';".format(DB),conn)
   return sc_tb
 
-sc_tb = schema_sc_tb()
-  
+tab1, tab2 = st.tabs(["Detailed view",  "Overview"])
+
+####col1--selecting schemas, classifying and if classified---removing the tags option####
+
+
 
 
 
