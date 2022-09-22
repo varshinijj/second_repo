@@ -18,8 +18,17 @@ cur = conn.cursor()
 
 ####database selection####
 
+
+
+
+
+if st.button("Clear All"):
+    # Clear values from *all* memoized functions:
+    # i.e. clear values from both square and cube
+    st.experimental_memo.clear()
+
 ##DB
-@st.cache
+@st.experimental_memo
 def all_databases():
   db_data = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA') and deleted is null;",conn)
   dbs = list(set(db_data['DATABASE']))
@@ -30,7 +39,7 @@ def convert_df(df):
   return df.to_csv().encode('utf-8')
 
 ##final
-@st.cache
+@st.experimental_memo
 def all_data():
   st.sidebar.title("Choose Database to Classify")
   DB = st.sidebar.radio('Available Databases:',all_databases())
@@ -56,6 +65,11 @@ def all_data():
 
 
 table = all_data()
+
+if st.button("Clear All"):
+    # Clear values from *all* memoized functions:
+    # i.e. clear values from both square and cube
+    st.experimental_memo.clear()
 
 
 
