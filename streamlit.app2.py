@@ -25,8 +25,7 @@ def all_databases():
   dbs = list(set(db_data['DATABASE']))
   return dbs
 
-if st.sidebar.button("Apply"):
-    st.experimental_memo.clear()
+
 ##export
 def convert_df(df):
   return df.to_csv().encode('utf-8')
@@ -68,7 +67,8 @@ def schemas_tables():
             sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
   return sc_tb          
             
-            
+if st.sidebar.button("Apply"):
+    st.experimental_memo.clear()            
             
 def classify():     
    st.sidebar.title("Choose Database to Classify")
