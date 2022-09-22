@@ -31,7 +31,7 @@ def convert_df(df):
 
 ##final
 @st.experimental_memo(suppress_st_warning=True)
-def all_data():
+def schemas_tables():
   st.sidebar.title("Choose Database to Classify")
   DB = st.sidebar.radio('Available Databases:',all_databases())
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
@@ -65,7 +65,12 @@ def all_data():
         for n in list(sc_tb['TABLE_NAME']):
           if n not in tables:
             sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
+  return sc_tb          
             
+            
+            
+ def classify():           
+   sc_tb = schemas_tables()        
       if sc_tb.shape[0]!=0:
         alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
         alldatatypes = pd.DataFrame(columns=['DATABASE','SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','DATA_TYPE'])
@@ -94,7 +99,7 @@ def all_data():
         st.error('Please select a schema', icon="🚨")         
 
 
-table = all_data()
+table = classify()
 
 if st.sidebar.button("Apply"):
     st.experimental_memo.clear()
