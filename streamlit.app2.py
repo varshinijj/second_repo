@@ -74,8 +74,7 @@ def schemas_tables():
             sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
   return sc_tb          
             
-if st.sidebar.button("Apply"):
-    st.experimental_memo.clear()            
+           
             
 def classify():     
    
