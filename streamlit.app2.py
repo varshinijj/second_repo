@@ -1,63 +1,37 @@
 import streamlit as st
+import plotly.graph_objects as go
+import graphviz as graphviz
 import pandas as pd
-import graphviz
-st.set_page_config(layout="wide")        
-from graphviz import Digraph    
+import snowflake.connector
+st.set_page_config(layout="wide")
+
+####connecting to snowflake account####
+
+conn = snowflake.connector.connect(
+                user='VARSHINI',
+                password='Snowflake@22!',
+                account='bg35464.ap-southeast-1',
+                warehouse = 'SQLWH',
+                ocsp_fail_open=False)
+
+cur = conn.cursor() 
+
+####database selection####
 
 
-tabd = pd.DataFrame(columns=['db', 'sc', 'tab'])
-tabd['db'] = ['db1','db1','db1','db1','db1','db1','db2','db2','db2','db2','db2','db2','db3','db3','db3','db3','db3','db3']
-tabd['sc'] = ['db1s1','db1s1','db1s2','db1s2','db1s3','db1s3','db2s1','db2s1','db2s2','db2s2','db2s3','db2s3','db3s1','db3s1','db3s2','db3s2','db3s3','db3s3']
-tabd['tab'] = ['tab111jhfyjufjhyjhfyjdf','tab112','tab121','tab122','tab131','tab132','tab211','tab212','tab221','tab222','tab231','tab232','tab311','tab312','tab321','tab322','tab331','tab332']
-
-db = st.sidebar.selectbox("choose db:",tabd['db'])
-sc = tabd.loc[tabd['db']==db][['sc','tab']]
-
-col1, col2 = st.columns([1, 4])
+def all_databases():
+  db_data = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA') and deleted is null;",conn)
+  dbs = list(set(list(db_data['DATABASE'])))
+  return dbs
 
 
-with col1:
-    sel = ['All Schemas','Select Schemas']
-    click = st.radio('Schemas:',sel)
-    if click =='All Schemas':
-        sc = tabd.loc[tabd['db']==db][['sc','tab']] 
-    else:
-        for x in list(sc['sc'].unique()): 
-            schemas = st.checkbox('{}'.format(x),False,disabled=False)
-            if schemas==False:
-                sc = sc.loc[sc['sc']!=x]
-                
-with col2:                
-    d = graphviz.Digraph()
-    d.attr(bgcolor='#0e1117')
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        s.node('{}'.format(db), fontcolor='white',color = 'red')  
-    with d.subgraph() as s:
-        s.attr(rank='same')
-        for x in list(sc['sc'].unique()):
-            s.node('{}'.format(x), fontcolor='white',color = 'red')
-            d.edge('{}'.format(db),'{}'.format(x),color = 'white')
-    with d.subgraph() as s:
-        sl = []
-        for idx,row in sc.iterrows():
-          if row['sc'] not in sl:
-            lala= sc.loc[sc['sc']==row['sc']][['tab']]
-            lala = lala.reset_index(drop=True)
-            lala.rename(columns = {'tab':'TABLE_NAME'}, inplace = True)
-            s.node('{}'.format(lala),shape='tab', fontcolor='white',color = 'red',nojustify='False')
-            d.edge('{}'.format(row['sc']),'{}'.format(lala),color='white')
-            sl.append(row['sc'])
-  
-    
-                
+def schema_sc():
+  st.sidebar.title("Choose Database to Classify")
+  DB = st.sidebar.radio('Available Databases:',all_databases())
+  sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
+  return sc
 
-    st.graphviz_chart(d)
-    name = st.text_input()
-     #   for idx,row in sc.iterrows():
-      #      s.node('{}'.format(row['tab']), fontcolor='white',color = 'red')
-       #     d.edge('{}'.format(row['sc']),'{}'.format(row['tab']),color = 'white',style='invis')      
-        
+sc = schema_sc()
   
 
 
