@@ -51,7 +51,7 @@ def all_data():
         schema= (str(schemas)[1:-1])
         schema
         for n in list(sc['SCHEMA']):
-          if n is not in schema:
+          if n not in schema:
             sc = sc.loc[sc['SCHEMA']!=n]
             sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
             
