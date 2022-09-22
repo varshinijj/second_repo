@@ -52,7 +52,6 @@ def schemas_tables():
       else:
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
-        schema #testing purpose
         for n in list(sc['SCHEMA']):
           if n not in schema:
             sc = sc.loc[sc['SCHEMA']!=n]
@@ -64,7 +63,6 @@ def schemas_tables():
       else:
         tables = st.multiselect('',list(sc_tb['TABLE_NAME']),key=4)
         tables = (str(tables)[1:-1])
-        tables #testing purpose
         for n in list(sc_tb['TABLE_NAME']):
           if n not in tables:
             sc_tb = sc_tb.loc[sc_tb['TABLE_NAME']!=n]
