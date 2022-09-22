@@ -25,6 +25,8 @@ def all_databases():
   dbs = list(set(db_data['DATABASE']))
   return dbs
 
+st.sidebar.title("Choose Database to Classify")
+DB = st.sidebar.radio('Available Databases:',all_databases())
 ##export
 def convert_df(df):
   return df.to_csv().encode('utf-8')
@@ -32,8 +34,7 @@ def convert_df(df):
 ##final
 @st.experimental_memo(suppress_st_warning=True)
 def schemas_tables():
-  st.sidebar.title("Choose Database to Classify")
-  DB = st.sidebar.radio('Available Databases:',all_databases())
+  
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
   sc_tb = pd.read_sql("select TABLE_SCHEMA AS SCHEMA,TABLE_NAME from {}.information_schema.TABLES where TABLE_SCHEMA != 'INFORMATION_SCHEMA';".format(DB),conn)
   
