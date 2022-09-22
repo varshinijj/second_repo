@@ -42,12 +42,12 @@ def all_data():
     col1, col2 = st.columns([8,2])
     with col1:
       select = ['All Schemas','Select Schemas']
-      click = st.radio('',select,key=2,horizontal=True)
+      click = st.radio('SCHEMAS',select,key=2,horizontal=True)
   
       if click =='All Schemas':
         pass
       else:
-        schemas = st.multiselect('SCHEMAS',list(sc['SCHEMA']),key=1)
+        schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
         schema #testing purpose
         for n in list(sc['SCHEMA']):
