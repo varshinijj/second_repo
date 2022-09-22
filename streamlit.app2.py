@@ -28,7 +28,7 @@ if st.button("Clear All"):
     st.experimental_memo.clear()
 
 ##DB
-@st.experimental_memo
+@st.experimental_singleton
 def all_databases():
   db_data = pd.read_sql("select database_name as database from SNOWFLAKE.ACCOUNT_USAGE.DATABASES where database_name not in ('SNOWFLAKE','SNOWFLAKE_SAMPLE_DATA') and deleted is null;",conn)
   dbs = list(set(db_data['DATABASE']))
