@@ -48,15 +48,11 @@ def schemas_tables():
       click = st.radio('SCHEMAS',select,key=2,horizontal=True)
   
       if click =='All Schemas':
-        pass
-        if st.button("Apply",key=6):
-          st.experimental_memo.clear()  
+        pass 
       else:
         schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
         schema #testing purpose
-        if st.button("Apply",key=5):
-          st.experimental_memo.clear()
         for n in list(sc['SCHEMA']):
           if n not in schema:
             sc = sc.loc[sc['SCHEMA']!=n]
