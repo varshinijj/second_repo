@@ -25,7 +25,8 @@ def all_databases():
   dbs = list(set(db_data['DATABASE']))
   return dbs
 
-
+if st.sidebar.button("Apply"):
+    st.experimental_memo.clear()
 ##export
 def convert_df(df):
   return df.to_csv().encode('utf-8')
@@ -103,8 +104,7 @@ def classify():
 
 table = classify()
 
-if st.sidebar.button("Apply"):
-    st.experimental_memo.clear()
+
     
 
 
