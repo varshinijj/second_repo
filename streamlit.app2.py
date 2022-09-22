@@ -47,7 +47,7 @@ def all_data():
       if click =='All Schemas':
         pass
       else:
-        schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
+        schemas = st.multiselect('SCHEMAS',list(sc['SCHEMA']),key=1)
         schema= (str(schemas)[1:-1])
         schema #testing purpose
         for n in list(sc['SCHEMA']):
@@ -55,7 +55,7 @@ def all_data():
             sc = sc.loc[sc['SCHEMA']!=n]
             sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=n]
             
-      click2 = st.radio('',['All Tables','Select Tables'],key=3,horizontal=True) 
+      click2 = st.radio('TABLES',['All Tables','Select Tables'],key=3,horizontal=True) 
       if click2 =='All Tables':
         pass
       else:
