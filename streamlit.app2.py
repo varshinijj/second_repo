@@ -22,8 +22,7 @@ cur = conn.cursor()
 
 
 
-if st.sidebar.button("Apply"):
-    st.experimental_memo.clear()
+
 
 ##DB
 @st.experimental_singleton
@@ -63,6 +62,9 @@ def all_data():
 
 
 table = all_data()
+
+if st.sidebar.button("Apply"):
+    st.experimental_memo.clear()
 
 
 
