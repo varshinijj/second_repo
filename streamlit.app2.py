@@ -66,8 +66,8 @@ def all_data():
 
 table = all_data()
 
-if st.sidebar.button("Apply",key=1):
-    st.experimental_memo.clear()
+
+st.sidebar.experimental_memo.clear()
 
 
 
