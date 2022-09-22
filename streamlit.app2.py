@@ -30,6 +30,7 @@ def convert_df(df):
   return df.to_csv().encode('utf-8')
 
 ##final
+@st.experimental_singleton
 def all_data():
   st.sidebar.title("Choose Database to Classify")
   DB = st.sidebar.radio('Available Databases:',all_databases())
