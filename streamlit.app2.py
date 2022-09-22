@@ -48,7 +48,7 @@ def all_data():
         pass
       else:
         
-        schemas = st.multiselect('',list(sc['SCHEMA']))
+        schemas = st.multiselect('',list(sc['SCHEMA']),key=1)
         sc = sc.loc[sc['SCHEMA']==schemas]
         sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schemas]
             
