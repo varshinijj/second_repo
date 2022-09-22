@@ -47,11 +47,10 @@ def all_data():
       if click =='All Schemas':
         pass
       else:
-        for x in list(sc['SCHEMA']):
-          schemas = st.checkbox('{}'.format(x),False)
-          if schemas==False:
-            sc = sc.loc[sc['SCHEMA']!=x]
-            sc_tb = sc_tb.loc[sc_tb['SCHEMA']!=x] 
+        schemas = st.multiselect(''.format(list(sc['SCHEMA'])))
+        sc = sc.loc[sc['SCHEMA']==schemas]
+        sc_tb = sc_tb.loc[sc_tb['SCHEMA']==schemas]
+            
       if sc_tb.shape[0]!=0:
         alltags = pd.DataFrame(columns=['SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','TAG_NAME','TAG_VALUE'])
         alldatatypes = pd.DataFrame(columns=['DATABASE','SCHEMA', 'TABLE_NAME', 'COLUMN_NAME','DATA_TYPE'])
