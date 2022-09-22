@@ -31,7 +31,13 @@ def schema_sc():
   sc = pd.read_sql("select CATALOG_NAME AS DATABASE,SCHEMA_NAME AS SCHEMA from {}.information_schema.SCHEMATA where SCHEMA_NAME !='INFORMATION_SCHEMA';".format(DB),conn)
   return sc
 
-sc = schema_sc()
+
+def schema_sc_tb():
+  sc = schema_sc()
+  sc_tb = pd.read_sql("select TABLE_SCHEMA AS SCHEMA,TABLE_NAME from {}.information_schema.TABLES where TABLE_SCHEMA != 'INFORMATION_SCHEMA';".format(DB),conn)
+  return sc_tb
+
+sc_tb = schema_sc_tb()
   
 
 
